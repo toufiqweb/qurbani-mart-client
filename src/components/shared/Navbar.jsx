@@ -28,11 +28,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-600 to-emerald-400 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-linear-to-br from-emerald-600 to-emerald-400 flex items-center justify-center">
               <span className="text-white font-bold text-xl">Q</span>
             </div>
 
-            <span className="text-xl font-semibold bg-gradient-to-r from-emerald-600 to-emerald-500 bg-clip-text text-transparent">
+            <span className="text-xl font-semibold bg-linear-to-r from-emerald-600 to-emerald-500 bg-clip-text text-transparent">
               QurbaniMart
             </span>
           </Link>
@@ -63,7 +63,7 @@ const Navbar = () => {
 
               <Link
                 href="/register"
-                className="px-6 py-2 rounded-full bg-gradient-to-r from-emerald-600 to-emerald-500 text-white hover:shadow-lg transition-all"
+                className="px-6 py-2 rounded-full bg-linear-to-r from-emerald-600 to-emerald-500 text-white hover:shadow-lg transition-all"
               >
                 Register
               </Link>
@@ -114,7 +114,7 @@ const Navbar = () => {
               <Link
                 href="/register"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="px-6 py-2 rounded-full bg-gradient-to-r from-emerald-600 to-emerald-500 text-white text-center"
+                className="px-6 py-2 rounded-full bg-linear-to-r from-emerald-600 to-emerald-500 text-white text-center"
               >
                 Register
               </Link>
