@@ -1,134 +1,129 @@
 "use client";
 
-import { useState } from "react";
-import { Link, Button } from "@heroui/react";
+import { Menu, X } from "lucide-react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
-function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="sticky top-0 z-40 w-full border-b border-gray-200 bg-white/80 backdrop-blur-lg">
-      <header className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        {/* Logo */}
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-600 text-xl font-bold text-white">
-            Q
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-white/80 backdrop-blur-md shadow-md" : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-2">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-600 to-emerald-400 flex items-center justify-center">
+              <span className="text-white font-bold text-xl">Q</span>
+            </div>
+
+            <span className="text-xl font-semibold bg-gradient-to-r from-emerald-600 to-emerald-500 bg-clip-text text-transparent">
+              QurbaniMart
+            </span>
+          </Link>
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-8">
+            <Link
+              href="/"
+              className="text-stone-700 hover:text-emerald-600 transition-colors"
+            >
+              Home
+            </Link>
+
+            <Link
+              href="/animals"
+              className="text-stone-700 hover:text-emerald-600 transition-colors"
+            >
+              All Animals
+            </Link>
+
+            <div className="flex items-center space-x-4">
+              <Link
+                href="/login"
+                className="text-stone-700 hover:text-emerald-600 transition-colors"
+              >
+                Login
+              </Link>
+
+              <Link
+                href="/register"
+                className="px-6 py-2 rounded-full bg-gradient-to-r from-emerald-600 to-emerald-500 text-white hover:shadow-lg transition-all"
+              >
+                Register
+              </Link>
+            </div>
           </div>
 
-          <div>
-            <h1 className="text-xl font-bold text-gray-900">QurbaniHat</h1>
-            <p className="text-xs text-gray-500">
-              Trusted Livestock Marketplace
-            </p>
-          </div>
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 rounded-lg hover:bg-stone-100"
+          >
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6 text-stone-700" />
+            ) : (
+              <Menu className="w-6 h-6 text-stone-700" />
+            )}
+          </button>
         </div>
 
-        {/* Right Side Buttons */}
-        <div className="hidden items-center gap-3 md:flex">
-          {/* Desktop Menu */}
-          <ul className="hidden items-center gap-8 md:flex">
-            <li>
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden py-4 bg-white/95 backdrop-blur-md rounded-2xl mt-2 shadow-xl">
+            <div className="flex flex-col space-y-4 px-4">
               <Link
                 href="/"
-                className="font-medium text-gray-700 hover:text-emerald-600"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-stone-700 hover:text-emerald-600 transition-colors py-2"
               >
                 Home
               </Link>
-            </li>
 
-            <li>
               <Link
-                href="#"
-                className="font-medium text-gray-700 hover:text-emerald-600"
+                href="/animals"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-stone-700 hover:text-emerald-600 transition-colors py-2"
               >
                 All Animals
               </Link>
-            </li>
-          </ul>
-          <Button variant="light" className="font-medium text-gray-700">
-            Login
-          </Button>
 
-          <Button variant="solid" className="bg-emerald-600 p-2 rounded-full px-4 font-medium text-white hover:bg-emerald-700">
-            Register
-          </Button>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span className="sr-only">Menu</span>
-
-          <svg
-            className="h-7 w-7 text-gray-700"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            {isMenuOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            )}
-          </svg>
-        </button>
-      </header>
-
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="border-t border-gray-200 bg-white md:hidden">
-          <ul className="flex flex-col gap-1 p-4">
-            <li>
-              <Link href="#" className="block rounded-lg py-3 text-gray-700">
-                Home
-              </Link>
-            </li>
-
-            <li>
-              <Link href="#" className="block rounded-lg py-3 text-gray-700">
-                All Animals
-              </Link>
-            </li>
-
-            <li>
-              <Link href="#" className="block rounded-lg py-3 text-gray-700">
-                Categories
-              </Link>
-            </li>
-
-            <li>
-              <Link href="#" className="block rounded-lg py-3 text-gray-700">
-                About
-              </Link>
-            </li>
-
-            <div className="mt-4 flex flex-col gap-3">
-              <Button variant="bordered" className="w-full border-gray-300">
+              <Link
+                href="/login"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-stone-700 hover:text-emerald-600 transition-colors py-2"
+              >
                 Login
-              </Button>
+              </Link>
 
-              <Button className="w-full bg-emerald-600 text-white">
+              <Link
+                href="/register"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="px-6 py-2 rounded-full bg-gradient-to-r from-emerald-600 to-emerald-500 text-white text-center"
+              >
                 Register
-              </Button>
+              </Link>
             </div>
-          </ul>
-        </div>
-      )}
+          </div>
+        )}
+      </div>
     </nav>
   );
-}
+};
 
-export default App;
+export default Navbar;
