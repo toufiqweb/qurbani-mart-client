@@ -1,2 +1,129 @@
 @import "tailwindcss";
 
+
+:root {
+  --color-primary-dark: #1F6F5F;   
+  --color-primary-mid: #2FA084;    
+  --color-primary-light: #6FCF97; 
+  --color-neutral-light: #EEEEEE;  
+
+  --bg-primary: var(--color-neutral-light);    
+  --bg-secondary: #FFFFFF;                     
+  
+  --text-main: #111111;                       
+  --text-muted: #555555;                        
+  
+  --accent: var(--color-primary-dark);        
+  --accent-hover: var(--color-primary-mid);     
+  --border-color: #DDDDDD;                     
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #121212;                   
+    --bg-secondary: #1A2421;                     
+    
+    --text-main: var(--color-neutral-light);    
+    --text-muted: #A0AAB0;                     
+    
+    --accent: var(--color-primary-light);        
+    --accent-hover: var(--color-primary-mid);    
+    --border-color: #2D3A37;                    
+  }
+}
+
+html.dark {
+  --bg-primary: #121212;
+  --bg-secondary: #1A2421;
+  --text-main: var(--color-neutral-light);
+  --text-muted: #A0AAB0;
+  --accent: var(--color-primary-light);
+  --accent-hover: var(--color-primary-mid);
+  --border-color: #2D3A37;
+}
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  transition: background-color 0.3s, color 0.3s; 
+}
+
+.card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: var(--bg-primary); 
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+}
+
+
+
+
+
+
+@layer utilities {
+  /* Smooth Floating Animation */
+  .animate-bounce-slow {
+    animation: bounceSlow 4s ease-in-out infinite;
+  }
+
+  /* Elegant Slow Spin for Sparkles */
+  .animate-spin-slow {
+    animation: spinSlow 6s linear infinite;
+  }
+
+  /* Premium Shimmer / Reflection Moving Glow */
+  .animate-shimmer {
+    animation: shimmerEffect 3.5s infinite ease-in-out;
+  }
+}
+
+/* For Banner badge */
+@layer utilities {
+  /* Smooth Floating Animation */
+  .animate-bounce-slow {
+    animation: bounceSlow 4s ease-in-out infinite;
+  }
+
+  /* Elegant Slow Spin for Sparkles */
+  .animate-spin-slow {
+    animation: spinSlow 6s linear infinite;
+  }
+
+  /* Premium Shimmer / Reflection Moving Glow */
+  .animate-shimmer {
+    animation: shimmerEffect 3.5s infinite ease-in-out;
+  }
+}
+
+@keyframes bounceSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmerEffect {
+  0% {
+    transform: translateX(-150%) skewX(-25deg);
+  }
+  50%, 100% {
+    transform: translateX(150%) skewX(-25deg);
+  }
+}
