@@ -5,13 +5,13 @@ import React from "react";
 
 const Testimonials = () => {
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[var(--bg-primary)] transition-colors duration-300">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-stone-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-[var(--text-main)]">
             What Our Customers Say
           </h2>
-          <p className="text-lg text-stone-600">
+          <p className="text-lg text-[var(--text-muted)]">
             Real experiences from satisfied customers
           </p>
         </div>
@@ -20,17 +20,17 @@ const Testimonials = () => {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="bg-linear-to-br from-white to-stone-50 rounded-2xl p-6 border border-stone-200 hover:shadow-xl transition-all duration-300"
+              className="rounded-2xl p-6 border transition-all duration-300 hover:shadow-xl bg-[var(--bg-secondary)] border-[var(--border-color)]"
             >
               <div className="flex items-center space-x-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star
                     key={i}
-                    className="w-5 h-5 fill-amber-400 text-amber-400"
+                    className="w-5 h-5 fill-amber-500 text-amber-500 dark:fill-amber-400 dark:text-amber-400"
                   />
                 ))}
               </div>
-              <p className="text-stone-700 mb-6 leading-relaxed">
+              <p className="mb-6 leading-relaxed text-[var(--text-muted)]">
                 {`"${testimonial.text}"`}
               </p>
               <div className="flex items-center space-x-3">
@@ -39,13 +39,13 @@ const Testimonials = () => {
                   alt={testimonial.name}
                   width={48}
                   height={48}
-                  className="w-12 h-12 rounded-full"
+                  className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
-                  <div className="font-semibold text-stone-900">
+                  <div className="font-semibold text-[var(--text-main)]">
                     {testimonial.name}
                   </div>
-                  <div className="text-sm text-stone-600">
+                  <div className="text-sm text-[var(--text-muted)]">
                     {testimonial.location}
                   </div>
                 </div>
