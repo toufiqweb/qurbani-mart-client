@@ -32,17 +32,16 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div 
+            <div
               className="w-10 h-10 rounded-full flex items-center justify-center transition-transform hover:scale-105"
               style={{ backgroundColor: "var(--accent)" }}
             >
               <span className="text-white font-bold text-xl">Q</span>
             </div>
 
-            <span 
+            <span
               className="text-xl font-bold tracking-wide transition-colors"
               style={{ color: "var(--accent)" }}
             >
@@ -56,7 +55,9 @@ const Navbar = () => {
               href="/"
               className="font-medium transition-colors"
               style={{ color: "var(--text-main)" }}
-              onMouseEnter={(e) => (e.target.style.color = "var(--color-primary-mid)")}
+              onMouseEnter={(e) =>
+                (e.target.style.color = "var(--color-primary-mid)")
+              }
               onMouseLeave={(e) => (e.target.style.color = "var(--text-main)")}
             >
               Home
@@ -66,7 +67,9 @@ const Navbar = () => {
               href="/animals"
               className="font-medium transition-colors"
               style={{ color: "var(--text-main)" }}
-              onMouseEnter={(e) => (e.target.style.color = "var(--color-primary-mid)")}
+              onMouseEnter={(e) =>
+                (e.target.style.color = "var(--color-primary-mid)")
+              }
               onMouseLeave={(e) => (e.target.style.color = "var(--text-main)")}
             >
               All Animals
@@ -75,22 +78,16 @@ const Navbar = () => {
             <div className="flex items-center space-x-4">
               <Link
                 href="/login"
-                className="font-medium transition-colors"
-                style={{ color: "var(--text-main)" }}
-                onMouseEnter={(e) => (e.target.style.color = "var(--color-primary-mid)")}
-                onMouseLeave={(e) => (e.target.style.color = "var(--text-main)")}
-              >
-                Login
-              </Link>
-
-              <Link
-                href="/register"
                 className="px-6 py-2 rounded-full font-medium text-white shadow-xs hover:shadow-md transition-all duration-200"
                 style={{ backgroundColor: "var(--accent)" }}
-                onMouseEnter={(e) => (e.target.style.backgroundColor = "var(--accent-hover)")}
-                onMouseLeave={(e) => (e.target.style.backgroundColor = "var(--accent)")}
+                onMouseEnter={(e) =>
+                  (e.target.style.backgroundColor = "var(--accent-hover)")
+                }
+                onMouseLeave={(e) =>
+                  (e.target.style.backgroundColor = "var(--accent)")
+                }
               >
-                Register
+                Login
               </Link>
             </div>
           </div>
@@ -111,11 +108,11 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div 
+          <div
             className="md:hidden py-4 rounded-2xl mt-2 shadow-xl border transition-all"
-            style={{ 
-              backgroundColor: "var(--bg-secondary)", 
-              borderColor: "var(--border-color)" 
+            style={{
+              backgroundColor: "var(--bg-secondary)",
+              borderColor: "var(--border-color)",
             }}
           >
             <div className="flex flex-col space-y-3 px-4">
@@ -123,7 +120,10 @@ const Navbar = () => {
                 href="/"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="font-medium transition-colors py-2 border-b"
-                style={{ color: "var(--text-main)", borderColor: "var(--border-color)" }}
+                style={{
+                  color: "var(--text-main)",
+                  borderColor: "var(--border-color)",
+                }}
               >
                 Home
               </Link>
@@ -132,27 +132,21 @@ const Navbar = () => {
                 href="/animals"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="font-medium transition-colors py-2 border-b"
-                style={{ color: "var(--text-main)", borderColor: "var(--border-color)" }}
+                style={{
+                  color: "var(--text-main)",
+                  borderColor: "var(--border-color)",
+                }}
               >
                 All Animals
               </Link>
 
               <Link
-                href="/login"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="font-medium transition-colors py-2"
-                style={{ color: "var(--text-main)" }}
-              >
-                Login
-              </Link>
-
-              <Link
-                href="/register"
+                href="/Login"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="px-6 py-2.5 rounded-full font-medium text-white text-center transition-colors"
                 style={{ backgroundColor: "var(--accent)" }}
               >
-                Register
+                Login
               </Link>
             </div>
           </div>
