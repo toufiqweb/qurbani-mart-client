@@ -36,7 +36,7 @@ export const testimonials = [
     location: "Karachi",
     rating: 5,
     text: "Excellent service! Found a healthy Sahiwal bull exactly as described. The booking process was smooth and the animal was delivered on time.",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Ahmed",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&h=150&fit=crop&crop=face",
   },
   {
     id: "2",
@@ -44,7 +44,7 @@ export const testimonials = [
     location: "Lahore",
     rating: 5,
     text: "Very professional platform. The animal quality exceeded expectations. Highly recommend for anyone looking for Qurbani animals.",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Fatima",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&h=150&fit=crop&crop=face",
   },
   {
     id: "3",
@@ -52,6 +52,6 @@ export const testimonials = [
     location: "Islamabad",
     rating: 5,
     text: "Great experience! The website made it easy to compare animals and prices. Customer support was helpful throughout the process.",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Usman",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&h=150&fit=crop&crop=face",
   },
 ];

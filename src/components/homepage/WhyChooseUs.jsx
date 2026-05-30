@@ -44,10 +44,10 @@ const WhyChooseUs = () => {
 
           {/* Feature 3 */}
           <div className="text-center group">
-            <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 bg-[var(--accent)] transition-all duration-300 group-hover:scale-105">
-              <Sparkles className="w-8 h-8 text-[var(--bg-secondary)] dark:text-[var(--color-neutral-light)]" />
+            <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 bg-(--accent) transition-all duration-300 group-hover:scale-105">
+              <Sparkles className="w-8 h-8 text-(--bg-secondary) dark:text-[var(--color-neutral-light)]" />
             </div>
-            <h3 className="text-xl font-semibold mb-2 text-[var(--text-main)]">Easy Booking</h3>
+            <h3 className="text-xl font-semibold mb-2 text-(--text-main)">Easy Booking</h3>
             <p className="text-sm leading-relaxed text-[var(--text-muted)]">
               Simple online booking process with instant confirmation
             </p>
